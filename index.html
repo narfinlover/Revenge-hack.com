@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>System Scan</title>
+<style>
+body{
+    background:black;
+    color:lime;
+    font-family:monospace;
+    text-align:center;
+    padding-top:100px;
+}
+#bar{
+    width:80%;
+    height:30px;
+    border:1px solid lime;
+    margin:auto;
+}
+#fill{
+    width:0%;
+    height:100%;
+    background:lime;
+}
+</style>
+</head>
+<body>
+
+<h1>Initializing Scan...</h1>
+
+<div id="bar">
+    <div id="fill"></div>
+</div>
+
+<p id="percent">0%</p>
+
+<script>
+let p = 0;
+let fill = document.getElementById("fill");
+let text = document.getElementById("percent");
+
+let timer = setInterval(() => {
+    p++;
+    fill.style.width = p + "%";
+    text.innerText = p + "%";
+
+    if (p >= 100) {
+        clearInterval(timer);
+        document.body.innerHTML =
+        "<h1>😂 PRANK!</h1><p>Your device is perfectly safe.</p>";
+    }
+}, 50);
+</script>
+
+</body>
+</html>
